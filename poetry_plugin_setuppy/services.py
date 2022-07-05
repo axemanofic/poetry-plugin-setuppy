@@ -15,7 +15,7 @@ class PackageService:
                 )
             ),
             "url": PackageService.get_check_field(package.repository_url),
-            "license": PackageService.get_check_field(package.license),
+            "license": PackageService.get_check_field(package.license.name),
             "author": PackageService.get_check_field(package.author_name),
             "author_email": PackageService.get_check_field(package.author_email),
             "description": PackageService.get_check_field(package.description),
@@ -32,8 +32,8 @@ class SetupPyGenerator:
     This class creates a file
     """
 
-    def __init__(self, filename, meta_data: dict):
-        self.file = pathlib.Path(filename)
+    def __init__(self, meta_data: dict):
+        self.file = pathlib.Path('setup.py')
         self.meta_data = meta_data
 
     def generate_file_py(self) -> None:

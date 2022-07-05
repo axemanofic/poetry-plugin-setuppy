@@ -1,14 +1,18 @@
 [tool.poetry]
 name = "poetry-plugin-setuppy"
 version = "0.1.0"
-description = "This plugin was created to create (or rebuild) the setup.py file"
-authors = ["Your Name <you@example.com>"]
+description = "Poetry plugin to create (or rebuild) the setup.py file"
+authors = ["Roman Sotnikov <axeman.ofic@gmail.com>"]
+license = "MIT"
 readme = "README.md"
+repository = 'https://github.com/axemanofic/poetry-plugin-setuppy.git'
 packages = [{include = "poetry_plugin_setuppy"}]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 
+[tool.poetry.plugins."poetry.application.plugin"]
+setuppy = "poetry_plugin_setuppy.plugins:SetupPyPlugin"
 
 [build-system]
 requires = ["poetry-core"]
